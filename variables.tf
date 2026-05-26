@@ -33,16 +33,16 @@ variable "issue_due" {
   description = "Enable notifications for due issues"
 }
 
-# variable "level" {
-#   type        = string
-#   default     = "custom"
-#   description = "The level of the notification"
-#
-#   validation {
-#     condition     = contains(["disabled", "participating", "watch", "global", "mention", "custom"], var.level)
-#     error_message = "Valid values are disabled, participating, watch, global, mention, custom"
-#   }
-# }
+variable "level" {
+  type        = string
+  default     = "custom"
+  description = "The level of the notification. Valid values are: disabled, participating, watch, global, mention, custom"
+
+  validation {
+    condition     = contains(["disabled", "participating", "watch", "global", "mention", "custom"], var.level)
+    error_message = "Valid values are: disabled, participating, watch, global, mention, custom."
+  }
+}
 
 variable "merge_merge_request" {
   type        = bool
@@ -77,7 +77,7 @@ variable "new_merge_request" {
 variable "new_note" {
   type        = bool
   default     = true
-  description = "Enable notifications for new notes on merge request"
+  description = "Enable notifications for new notes on merge requests"
 }
 
 variable "push_to_merge_request" {
